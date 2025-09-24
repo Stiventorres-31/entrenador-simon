@@ -1,0 +1,30 @@
+# ==============================================================================
+# ARCHIVO DE CONFIGURACIÓN DE APACHE (.htaccess)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# URL AMIGABLES (Eliminar extensión .html)
+# ------------------------------------------------------------------------------
+
+# Activa el motor de reescritura de URLs.
+RewriteEngine On
+
+# Evita que la regla se aplique a archivos o directorios que ya existen.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redirige internamente las peticiones de 'pagina' a 'pagina.html'.
+# Por ejemplo, si alguien visita tu-sitio.com/planes, el servidor
+# mostrará el contenido de tu-sitio.com/planes.html sin cambiar la URL.
+RewriteRule ^([^/]+)$ $1.html [L]
+
+
+# ------------------------------------------------------------------------------
+# PÁGINAS DE ERROR PERSONALIZADAS
+# ------------------------------------------------------------------------------
+
+ErrorDocument 400 /400.html
+ErrorDocument 401 /401.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
