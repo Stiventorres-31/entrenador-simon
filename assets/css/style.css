@@ -1,0 +1,463 @@
+/* ---------------------------------- */
+/* ESTILOS GENERALES Y VARIABLES      */
+/* ---------------------------------- */
+/* Para un mejor look, considera usar una Google Font. Descomenta la siguiente línea y agrégala en el <head> de tu HTML. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+:root {
+    --color-primario: #4082C9; /* Azul principal */
+    --color-fondo-oscuro: #181918; /* Negro para fondos */
+    --color-texto-claro: #F5F5F5;
+    --color-texto-oscuro: #333;
+    --color-fondo-claro: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+}
+
+/* --- UTILIDADES Y CONTENEDOR --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.section-dark {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* --- BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #5a9ee4;
+}
+
+/* --- NAVEGACIÓN --- */
+header {
+    background-color: var(--color-fondo-claro);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px; /* Ajusta esta altura según el tamaño de tu logo */
+    width: auto;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-texto-oscuro);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-cta {
+    background-color: var(--color-primario);
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: var(--color-texto-claro);
+}
+
+/* --- HAMBURGUESA (oculta en desktop) --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-texto-oscuro);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- SECCIÓN HERO --- */
+.hero {
+    /* Reemplaza 'hero-background.jpg' con el nombre de tu imagen de fondo */
+    background-image: linear-gradient(rgba(24, 25, 24, 0.8), rgba(24, 25, 24, 0.8)), url('../images/modelo-haciendo-flexiones-gimnasio_600776-38277.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-texto-claro);
+    min-height: calc(100vh - 72px); /* Altura de pantalla menos el header */
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero-text .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.about-preview {
+    margin-top: 40px;
+    padding-left: 20px;
+    border-left: 3px solid var(--color-primario);
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 450px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* --- BENEFICIOS --- */
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+.benefits-list li {
+    margin-bottom: 15px;
+}
+.benefits-list .highlight-benefit {
+    color: var(--color-primario);
+    font-weight: 700;
+   
+    /* 
+    esto hace el cuadro con el sombreado
+    padding: 10px 15px;
+   
+    background-color: rgba(64, 130, 201, 0.1);
+    transform: scale(1.05);
+     border-radius: 8px;
+     border: 1px solid var(--color-primario);
+    box-shadow: 0 4px 15px rgba(64, 130, 201, 0.2); */
+}
+
+/* --- ENTRENADORES --- */
+.trainers-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.trainer-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 350px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover {
+    transform: translateY(-10px);
+}
+
+.trainer-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: fill;
+}
+
+.trainer-info {
+    padding: 25px;
+}
+
+.trainer-info span {
+    color: var(--color-primario);
+    font-weight: 700;
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+/* --- PLANES --- */
+.plans-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.plan-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    width: 300px;
+    background-color: #f9f9f9;
+}
+
+.plan-card.featured {
+    border: 2px solid var(--color-primario);
+    transform: scale(1.05);
+}
+
+.plan-card h3 {
+    font-size: 1.8rem;
+}
+.plan-card .price {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--color-primario);
+    margin: 10px 0;
+}
+.plan-card .price-detail {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+.plan-card li {
+    margin-bottom: 10px;
+}
+#planes .cta-button {
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* --- GALERÍA DE RESULTADOS --- */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+/* --- SECCIÓN MOTIVACIONAL --- */
+#motivacional {
+    text-align: center;
+}
+
+/* --- FAQ --- */
+.faq-item {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+}
+.faq-item h4 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+    text-align: center;
+    padding: 60px 20px;
+}
+footer h2 {
+    font-size: 2rem;
+}
+footer .final-cta {
+    margin-top: 20px;
+}
+.copyright {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ---------------------------------- */
+/* --- ESTILOS RESPONSIVE (MÓVIL) --- */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+    /* --- NAVEGACIÓN MÓVIL --- */
+    .nav-links {
+        position: fixed;
+        top: 68px; /* Altura del header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background-color: var(--color-fondo-oscuro);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        color: var(--color-texto-claro);
+    }
+
+    .nav-cta {
+        display: none; /* Ocultamos el botón CTA de la barra */
+    }
+
+    .hamburger {
+        display: block; /* Mostramos la hamburguesa */
+    }
+
+    /* Animación de la hamburguesa a "X" */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* --- AJUSTES GENERALES --- */
+    section {
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 2.2rem !important;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* --- HERO --- */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2; /* El texto va después de la imagen en móvil */
+    }
+
+    .hero-image {
+        order: 1; /* La imagen va primero */
+        max-width: 280px;
+        margin-bottom: 20px;
+    }
+
+    /* --- PLANES --- */
+    .plan-card.featured {
+        transform: scale(1); /* Quitamos el zoom en móvil */
+    }
+
+    /* --- FAQ --- */
+    .faq-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
